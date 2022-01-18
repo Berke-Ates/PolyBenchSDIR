@@ -4,11 +4,11 @@ path="$1/bin"
 
 echo -e "Checking MLIR kernels..."
 
-#for filename in $(find $path/mlir/* -name '*.out'); do
-#  bname="$(basename $filename .out)"
-#  echo -e "   checking $bname"
-#  ./$filename || echo -e "\u274c $bname failed"
-#done
+for filename in $(find $path/mlir/* -name '*.out'); do
+  bname="$(basename $filename .out)"
+  echo -e "   checking $bname"
+  ./$filename || echo -e "\u274c $bname failed"
+done
 
 echo -e "\u2705 MLIR check done!"
 

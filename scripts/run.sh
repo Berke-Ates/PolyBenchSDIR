@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Needs: 
-# PolyGeist (with LLVM, MLIR and Clang)
+# Polygeist (with LLVM, MLIR and Clang)
 # DaCe 
 # MLIR-DaCe 
 # llc
 # dart
 # Add the binaries to PATH 
 
-# Paths to root folder & PolyGeist
-path=".idea/eval"
-poly=".idea/eval/Polygeist"
+# Paths to root folder & Polygeist
+path="."
+poly="./Polygeist"
 
 $path/scripts/clear.sh $path
 $path/scripts/gen_poly.sh $path $poly
