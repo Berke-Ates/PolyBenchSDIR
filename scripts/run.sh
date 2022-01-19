@@ -31,5 +31,6 @@ $path/scripts/compile_renamed.sh $path
 $path/scripts/compile_sdfg.sh $path
 
 $path/scripts/link.sh $path
-$path/scripts/check.sh $path
+#$path/scripts/check.sh $path
 
+# $path/scripts/sdir_benchmark.sh $path

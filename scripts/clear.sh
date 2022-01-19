@@ -5,6 +5,9 @@ path=$1
 rm -rf $path/bin
 rm -rf $path/build
 rm -rf $path/gen
+rm -rf $path/logs
+
+mkdir -p $path/logs
 
 mkdir -p $path/bin/mlir
 mkdir -p $path/bin/sdfg
