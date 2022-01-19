@@ -39,4 +39,8 @@ def opt(sdfg: dace.SDFG):
 
     sdutil.inline_sdfgs(sdfg, multistate=True)
     sdutil.fuse_states(sdfg)
+    for node, parent in sdfg.all_nodes_recursive():
+        if isinstance(node, dace.nodes.MapEntry):
+            print("DONE", node)
+            node.schedule = dace.ScheduleType.Sequential
     # + simplification_transformations()))
