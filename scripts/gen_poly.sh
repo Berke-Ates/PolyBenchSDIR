@@ -17,7 +17,7 @@ for filename in $(find $poly/tools/mlir-clang/Test/polybench/* -name '*.c' -not 
     clang=$poly/build/bin/mlir-clang
     incl=$poly/tools/mlir-clang/Test/polybench/utilities/
     bname="$(basename $filename .c)"
-    fname="$bname.mlir"
+    fname="$bname.out"
     $clang $filename -I $incl --O3 -o=$1bin/clang/$fname
 done
 
