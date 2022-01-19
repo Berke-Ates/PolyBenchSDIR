@@ -20,8 +20,8 @@ for filename in $(find $poly/tools/mlir-clang/Test/polybench/* -name '*.c' -not 
     bname="$(basename $filename .c)"
     fname="$bname.out"
     $mlir-clang $filename $polyC -DPOLYBENCH_TIME -I $incl --O3 -o=$1/bin/clang/$fname
-    clang -O3 -march=native -mllvm -polly -mllvm -polly-parallel -lgomp -DUSE_MPI=0 -lm $polyC $filename -I $incl -DPOLYBENCH_TIME -o $1/bin/pollypar/$fname
-    clang -mllvm -polly -lgomp -DUSE_MPI=0 -lm $polyC $filename -I $incl -DPOLYBENCH_TIME -o $1/bin/polly/$fname
+    /scratch/talbn/llvm-project/build/bin/clang -O3 -march=native -mllvm -polly -mllvm -polly-parallel -lgomp -DUSE_MPI=0 -lm $polyC $filename -I $incl -DPOLYBENCH_TIME -o $1/bin/pollypar/$fname
+    /scratch/talbn/llvm-project/build/bin/clang -mllvm -polly -lgomp -DUSE_MPI=0 -lm $polyC $filename -I $incl -DPOLYBENCH_TIME -o $1/bin/polly/$fname
     gcc -O3 -march=native $polyC $filename -I $incl -DPOLYBENCH_TIME  -o $1/bin/gcc/$fname
 done
 
