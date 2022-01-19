@@ -11,6 +11,7 @@ mkdir -p $path/logs
 
 mkdir -p $path/bin/mlir
 mkdir -p $path/bin/sdfg
+mkdir -p $path/bin/clang
 
 mkdir -p $path/build/driver/orig
 mkdir -p $path/build/driver/renamed
