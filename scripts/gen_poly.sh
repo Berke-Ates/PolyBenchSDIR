@@ -23,6 +23,8 @@ for filename in $(find $poly/tools/mlir-clang/Test/polybench/* -name '*.c' -not 
     /scratch/talbn/llvm-project/build/bin/clang -O3 -march=native -mllvm -polly -mllvm -polly-parallel -lgomp -DUSE_MPI=0 -lm $polyC $filename -I $incl -DPOLYBENCH_TIME -o $1/bin/pollypar/$fname
     /scratch/talbn/llvm-project/build/bin/clang -mllvm -polly -lgomp -DUSE_MPI=0 -lm $polyC $filename -I $incl -DPOLYBENCH_TIME -o $1/bin/polly/$fname
     gcc -O3 -march=native $polyC $filename -I $incl -DPOLYBENCH_TIME  -o $1/bin/gcc/$fname
+    /users/talbn/pluto-0.11.4/polycc --parallel $filename; gcc -O3 -fopenmp -march=native $polyC $bname.pluto.c -I $incl -I`dirname $filename` -DPOLYBENCH_TIME -o $1/bin/plutopar/$fname	
+    /users/talbn/pluto-0.11.4/polycc $filename; gcc -O3 -march=native $polyC $bname.pluto.c -I $incl -I`dirname $filename` -DPOLYBENCH_TIME -o $1/bin/pluto/$fname
 done
 
 
