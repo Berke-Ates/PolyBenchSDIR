@@ -63,7 +63,7 @@ if __name__ == '__main__':
     init_arrays(n, alpha, beta, ref, B12, B22, B32, B42, B52, B62, B72, B82)
     reKernel(alpha, beta, ref, B12, B22, B32, B42, B52, B62, B72, B82)
 
-    for i in range(1):
+    for i in range(100):
         t_0 = datetime.datetime.now()
         obj(_arg0=np.int32(n),
             _arg1=alpha,

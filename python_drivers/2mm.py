@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     ref = alpha * A @ B @ C + beta * D
 
-    for i in range(1):
+    for i in range(100):
         t_0 = datetime.datetime.now()
         obj(_arg0=np.int32(ni),
             _arg1=np.int32(nj),

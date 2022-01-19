@@ -78,7 +78,7 @@ if __name__ == '__main__':
     ref = initialize(n)
     refKernel(tsteps, n, ref)
 
-    for i in range(1):
+    for i in range(100):
         t_0 = datetime.datetime.now()
         obj(_arg0=np.int32(tsteps),
             _arg1=np.int32(n),
