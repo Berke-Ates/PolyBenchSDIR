@@ -18,7 +18,7 @@ for filename in $(find $poly/tools/mlir-clang/Test/polybench/* -name '*.c' -not 
     incl=$poly/tools/mlir-clang/Test/polybench/utilities/
     bname="$(basename $filename .c)"
     fname="$bname.out"
-    $clang $filename -I $incl --O3 -o=$1bin/clang/$fname
+    $clang $filename -I $incl --O3 -o=$1/bin/clang/$fname
 done
 
 echo -ne "\r\e[K"
