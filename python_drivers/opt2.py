@@ -3,6 +3,11 @@ from typing import Dict, Set
 import dace
 from dace import SDFG
 from dace.transformation.auto.auto_optimize import auto_optimize
+from dace.sdfg.analysis import scalar_to_symbol as s2s
+from dace.transformation.dataflow.tasklet_fusion import SimpleTaskletFusion
+from dace.transformation import helpers as xfh
+from dace.transformation.interstate.state_elimination import ConstantPropagation
+from dace.transformation.interstate import LoopToMap
 from typing import Optional
 import time
 
@@ -216,7 +221,7 @@ def simple_cprop(sdfg: SDFG):
 def opt2(sdfg):
   sdfg.simplify()
 
-  from dace.sdfg.analysis import scalar_to_symbol as s2s
+  
   s = time.time()
   for sd in sdfg.sdfg_list:
       promoted = s2s.promote_scalars_to_symbols(sd, transients_only=False)
@@ -224,16 +229,8 @@ def opt2(sdfg):
   print('Promotion time:', (time.time() - s), 's')
 
   sdfg.simplify()
-
-  from dace.transformation.dataflow.tasklet_fusion import SimpleTaskletFusion
-  from dace.transformation import helpers as xfh
-
   sdfg.apply_transformations_repeated(TaskletFusion)
-
   xfh.split_interstate_edges(sdfg)
-
-  from dace.transformation.interstate.state_elimination import ConstantPropagation
-  from dace.transformation.interstate import LoopToMap
 
   sdfg.apply_transformations_repeated(ConstantPropagation)
 
