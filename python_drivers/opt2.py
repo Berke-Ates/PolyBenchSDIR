@@ -3,6 +3,7 @@ from typing import Dict, Set
 import dace
 from dace import SDFG
 from dace.transformation.auto.auto_optimize import auto_optimize
+from typing import Optional
 
 class Renamer(ast.NodeTransformer):
     def __init__(self, repldict: Dict[str, str]):
