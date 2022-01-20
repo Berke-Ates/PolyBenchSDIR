@@ -77,6 +77,7 @@ if __name__ == '__main__':
 
     ref = initialize(n)
     refKernel(tsteps, n, ref)
+    print("Calculated reference")
 
     for i in range(100):
         t_0 = datetime.datetime.now()
