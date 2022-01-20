@@ -3,7 +3,7 @@ import datetime
 import numpy as np
 import dace
 from dace import SDFG
-from opt import opt
+from opt2 import opt2
 
 name = "adi"
 
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     D = dace.ndarray(shape=(n, n), dtype=dace.float64)
 
     sdfg = SDFG.from_file(sys.argv[1] + "/gen/kernel_sdfg/" + name + ".sdfg")
-    opt(sdfg)
+    opt2(sdfg)
     obj = sdfg.compile()
 
     ref = initialize(n)
