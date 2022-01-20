@@ -206,6 +206,8 @@ def simple_cprop(sdfg: SDFG):
                 continue
             repldict[var] = ise.data.assignments[var]
             del ise.data.assignments[var]
+            if var in sdfg.symbols:
+                del sdfg.symbols[var]
             break
         # Propagate
         for k, v in repldict.items():
